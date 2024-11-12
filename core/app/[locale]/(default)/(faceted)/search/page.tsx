@@ -9,6 +9,9 @@ import { MobileSideNav } from '../_components/mobile-side-nav';
 import { SortBy } from '../_components/sort-by';
 import { fetchFacetedSearch } from '../fetch-faceted-search';
 
+// Klevu Search Result Landing Page Component
+import KlevuSearch from '~/components/ui/klevu/search';
+
 export async function generateMetadata() {
   const t = await getTranslations('Search');
 
@@ -35,7 +38,13 @@ export default async function Search({ searchParams }: Props) {
     );
   }
 
-  const search = await fetchFacetedSearch({ ...searchParams });
+  // Klevu Search Result Landing Page Component
+  return (
+    <KlevuSearch term={searchTerm} />
+  )  
+
+  /* Original Search Result Landing Page commented */
+  /* const search = await fetchFacetedSearch({ ...searchParams });
 
   const productsCollection = search.products;
   const products = productsCollection.items;
@@ -110,7 +119,7 @@ export default async function Search({ searchParams }: Props) {
         </section>
       </div>
     </div>
-  );
+  ); */
 }
 
 export const runtime = 'edge';

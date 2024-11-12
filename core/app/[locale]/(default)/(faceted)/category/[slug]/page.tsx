@@ -17,6 +17,9 @@ import { EmptyState } from './_components/empty-state';
 import { SubCategories } from './_components/sub-categories';
 import { getCategoryPageData } from './page-data';
 
+// Klevu Category Merchandizing Component
+import KlevuCategory from '~/components/ui/klevu/category';
+
 interface Props {
   params: {
     slug: string;
@@ -62,8 +65,16 @@ export default async function Category({ params: { locale, slug }, searchParams 
   if (!category) {
     return notFound();
   }
+  
+  // Klevu Category Merchandizing Component
+  if (category) {
+    return (
+      <KlevuCategory category={category} />
+    )
+  }  
 
-  const productsCollection = search.products;
+  /* Original Category Page commented*/ 
+  /* const productsCollection = search.products;
   const products = productsCollection.items;
   const { hasNextPage, hasPreviousPage, endCursor, startCursor } = productsCollection.pageInfo;
 
@@ -133,7 +144,7 @@ export default async function Category({ params: { locale, slug }, searchParams 
       </div>
       <CategoryViewed category={category} categoryId={categoryId} products={products} />
     </div>
-  );
+  ); */
 }
 
 export const runtime = 'edge';

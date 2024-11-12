@@ -6,6 +6,9 @@ import { Header, HeaderSkeleton } from '~/components/header';
 import { Cart } from '~/components/header/cart';
 import { LocaleType } from '~/i18n/routing';
 
+// Klevu Web Component Libray Styles added
+import '@klevu/ui/dist/klevu-ui/klevu-ui.css'
+
 interface Props extends PropsWithChildren {
   params: { locale: LocaleType };
 }
